@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADAMS LUXURY | Les Plus Belles Montres</title>
+    <meta name="description"
+        content="Découvrez notre collection exclusive de montres de luxe. Élégance, précision et prestige.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+    <header class="navbar">
+        <div class="logo">ADAMS LUXURY</div>
+        <nav id="navbar">
+            <a href="#">Accueil</a>
+            <a href="#catalogue">Catalogue</a>
+            <a href="#contact">Contact</a>
+        </nav>
+        <div class="navbar-actions">
+            <button class="theme-toggle" id="themeToggle" title="Changer de mode">
+                <i class="fa-solid fa-moon"></i>
+            </button>
+            <div class="cart-btn" onclick="toggleCart()">
+                <i class="fa-solid fa-crown"></i>
+                <span id="cartCount">0</span>
+            </div>
+            <button class="mobile-toggle" onclick="toggleMobileMenu()">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <p>La Distinction au Poignet</p>
+            <h1>L'Élégance Intemporelle</h1>
+            <a href="#catalogue" class="btn">Explorer La Collection</a>
+        </div>
+    </section>
+
+    <section class="filters" id="catalogue">
+        <h2>Notre Collection</h2>
+        <div class="filter-group">
+            <label>Trier par Prix :</label>
+            <select id="priceFilter" onchange="filterProducts()">
+                <option value="all">Toute la collection</option>
+                <option value="50000">Jusqu'à 50 000 FCFA</option>
+                <option value="100000">Jusqu'à 100 000 FCFA</option>
+                <option value="200000">Jusqu'à 200 000 FCFA</option>
+            </select>
+        </div>
+    </section>
+
+    <section class="products" id="products"></section>
+
+    <div class="cart-panel" id="cartPanel">
+        <div class="cart-header">
+            <h2>Ma Sélection</h2>
+            <div class="close-cart" onclick="toggleCart()">
+                <i class="fas fa-times"></i>
+            </div>
+        </div>
+        <div id="cartItems"></div>
+        <div id="cartFooter" style="margin-top: auto; padding-top: 20px; border-top: 1px solid var(--glass-border);">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 20px;">
+                <span style="letter-spacing: 2px;">TOTAL</span>
+                <span id="totalPrice" style="color: var(--primary); font-weight: 700;">0 FCFA</span>
+            </div>
+            <button onclick="orderWhatsApp()" class="whatsapp-btn">
+                <i class="fab fa-whatsapp"></i> Finaliser via WhatsApp
+            </button>
+        </div>
+    </div>
+
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="footer-logo">ADAMS LUXURY</div>
+            <p>Le prestige de l'horlogerie fine à votre portée.</p>
+            <div class="footer-contact">
+                <p><i class="fas fa-phone"></i> Service Client : +226 62492815</p>
+                <p><i class="fas fa-location-dot"></i> Ouagadougou, Burkina Faso</p>
+            </div>
+            <div
+                style="margin-top: 40px; border-top: 1px solid #222; padding-top: 20px; font-size: 0.8rem; opacity: 0.5;">
+                &copy; 2026 ADAMS LUXURY. Tous droits réservés.<br>
+                Designed by DERME Faissal<br>
+                +22662885039
+            </div>
+        </div>
+    </footer>
+
+    <div class="image-modal" id="imageModal" onclick="closeZoom()">
+        <span class="close-modal">&times;</span>
+        <img id="modalImg" src="" alt="Zoom Image">
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
