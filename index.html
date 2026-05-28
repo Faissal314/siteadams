@@ -7,23 +7,50 @@
     <title>ADAMS LUXURY | Les Plus Belles Montres</title>
     <meta name="description"
         content="Découvrez notre collection exclusive de montres de luxe. Élégance, précision et prestige.">
-    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Fonts Premium -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Orbitron:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Particles.js -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 </head>
 
 <body>
+    <!-- Custom Cursor -->
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
 
-    <header class="navbar">
-        <div class="logo">ADAMS LUXURY</div>
-        <nav id="navbar">
-            <a href="#">Accueil</a>
-            <a href="#catalogue">Catalogue</a>
-            <a href="#contact">Contact</a>
+    <!-- Particles Background -->
+    <div id="particles-js"></div>
+
+    <header class="navbar" id="navbar">
+        <div class="logo">
+            <span class="logo-text">ADAMS</span>
+            <span class="logo-accent">LUXURY</span>
+        </div>
+        <nav id="navMenu">
+            <a href="#home" class="nav-link active"><i class="fas fa-home"></i> Accueil</a>
+            <a href="#about" class="nav-link"><i class="fas fa-info-circle"></i> À Propos</a>
+            <a href="#catalogue" class="nav-link"><i class="fas fa-gem"></i> Collection</a>
+            <a href="#features" class="nav-link"><i class="fas fa-star"></i> Avantages</a>
+            <a href="#testimonials" class="nav-link"><i class="fas fa-comments"></i> Témoignages</a>
+            <a href="#faq" class="nav-link"><i class="fas fa-question-circle"></i> FAQ</a>
+            <a href="#contact" class="nav-link"><i class="fas fa-envelope"></i> Contact</a>
         </nav>
         <div class="navbar-actions">
             <button class="theme-toggle" id="themeToggle" title="Changer de mode">
                 <i class="fa-solid fa-moon"></i>
             </button>
+            <div class="wishlist-btn" onclick="toggleWishlist()">
+                <i class="fa-solid fa-heart"></i>
+                <span id="wishlistCount">0</span>
+            </div>
             <div class="cart-btn" onclick="toggleCart()">
                 <i class="fa-solid fa-crown"></i>
                 <span id="cartCount">0</span>
@@ -34,41 +61,277 @@
         </div>
     </header>
 
-    <section class="hero">
-        <div class="hero-content">
-            <p>La Distinction au Poignet</p>
-            <h1>L'Élégance Intemporelle</h1>
-            <a href="#catalogue" class="btn">Explorer La Collection</a>
+    <!-- Hero Section with Parallax -->
+    <section class="hero" id="home">
+        <div class="hero-overlay"></div>
+        <div class="hero-content" data-aos="fade-up" data-aos-duration="1500">
+            <p class="hero-subtitle">La Distinction au Poignet</p>
+            <h1 class="hero-title glitch" data-text="L'Élégance Intemporelle">L'Élégance Intemporelle</h1>
+            <p class="hero-description">Découvrez l'excellence horlogère où tradition et innovation se rencontrent pour créer des pièces d'exception.</p>
+            <div class="hero-buttons">
+                <a href="#catalogue" class="btn btn-primary">
+                    <i class="fas fa-gem"></i> Explorer La Collection
+                </a>
+                <a href="#about" class="btn btn-secondary">
+                    <i class="fas fa-play"></i> Notre Histoire
+                </a>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="mouse">
+                <div class="wheel"></div>
+            </div>
+            <p>Découvrir</p>
         </div>
     </section>
 
-    <section class="filters" id="catalogue">
-        <h2>Notre Collection</h2>
-        <div class="filter-group">
-            <label>Trier par Prix :</label>
-            <select id="priceFilter" onchange="filterProducts()">
-                <option value="all">Toute la collection</option>
-                <option value="50000">Jusqu'à 50 000 FCFA</option>
-                <option value="100000">Jusqu'à 100 000 FCFA</option>
-                <option value="200000">Jusqu'à 200 000 FCFA</option>
-            </select>
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-image" data-aos="fade-right" data-aos-duration="1200">
+                    <div class="image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1614164185128-e4ec99c436d7?q=80&w=800" alt="Montre de luxe" class="about-img">
+                        <div class="image-glow"></div>
+                    </div>
+                    <div class="experience-badge">
+                        <span class="years">15+</span>
+                        <span class="label">Années d'Excellence</span>
+                    </div>
+                </div>
+                <div class="about-content" data-aos="fade-left" data-aos-duration="1200">
+                    <h2 class="section-title">Notre <span class="highlight">Héritage</span></h2>
+                    <p class="about-text">Chez ADAMS LUXURY, nous croyons que chaque montre raconte une histoire. Depuis plus de 15 ans, nous sélectionnons avec passion les timepieces les plus exceptionnelles pour les amateurs d'horlogerie fine.</p>
+                    <p class="about-text">Notre engagement : vous offrir des pièces authentiques qui allient précision suisse, design intemporel et prestige incomparable.</p>
+                    <div class="about-stats">
+                        <div class="stat-item">
+                            <i class="fas fa-watch"></i>
+                            <span class="stat-number" data-target="500">0</span>
+                            <span class="stat-label">Modèles Exclusifs</span>
+                        </div>
+                        <div class="stat-item">
+                            <i class="fas fa-users"></i>
+                            <span class="stat-number" data-target="2000">0</span>
+                            <span class="stat-label">Clients Satisfaits</span>
+                        </div>
+                        <div class="stat-item">
+                            <i class="fas fa-award"></i>
+                            <span class="stat-number" data-target="100">0</span>
+                            <span class="stat-label">% Authentique</span>
+                        </div>
+                    </div>
+                    <a href="#catalogue" class="btn btn-primary">Découvrir Nos Collections</a>
+                </div>
+            </div>
         </div>
     </section>
 
-    <section class="products" id="products"></section>
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <h2 class="section-title center" data-aos="fade-up">Pourquoi <span class="highlight">Nous Choisir</span></h2>
+            <div class="features-grid">
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Authenticité Garantie</h3>
+                    <p>Chaque montre est certifiée authentique avec certificat d'origine et garantie internationale.</p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="feature-icon">
+                        <i class="fas fa-truck-fast"></i>
+                    </div>
+                    <h3>Livraison Express</h3>
+                    <p>Livraison sécurisée en 24-48h partout au Burkina Faso avec suivi en temps réel.</p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="feature-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3>Service Premium</h3>
+                    <p>Support client disponible 7j/7 pour vous accompagner dans votre choix.</p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="feature-icon">
+                        <i class="fas fa-undo"></i>
+                    </div>
+                    <h3>Satisfaction Garantie</h3>
+                    <p>Politique de retour flexible sous 14 jours si vous n'êtes pas entièrement satisfait.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- Catalogue Section -->
+    <section class="filters-section" id="catalogue">
+        <div class="container">
+            <h2 class="section-title center" data-aos="fade-up">Notre <span class="highlight">Collection</span></h2>
+            
+            <!-- Category Filter -->
+            <div class="filter-tabs" data-aos="fade-up" data-aos-delay="100">
+                <button class="filter-tab active" data-filter="all">Tous</button>
+                <button class="filter-tab" data-filter="Luxury">Luxe</button>
+                <button class="filter-tab" data-filter="Sport">Sport</button>
+                <button class="filter-tab" data-filter="Classic">Classique</button>
+                <button class="filter-tab" data-filter="Modern">Moderne</button>
+            </div>
+
+            <div class="filter-group" data-aos="fade-up" data-aos-delay="200">
+                <label><i class="fas fa-sort-amount-down"></i> Trier par Prix :</label>
+                <select id="priceFilter" onchange="filterProducts()">
+                    <option value="all">Toute la collection</option>
+                    <option value="50000">Jusqu'à 50 000 FCFA</option>
+                    <option value="100000">Jusqu'à 100 000 FCFA</option>
+                    <option value="200000">Jusqu'à 200 000 FCFA</option>
+                </select>
+            </div>
+
+            <div class="products-grid" id="products"></div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <h2 class="section-title center" data-aos="fade-up">Ce Que Disent <span class="highlight">Nos Clients</span></h2>
+            <div class="testimonials-slider">
+                <div class="testimonial-card" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="testimonial-header">
+                        <div class="client-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="client-info">
+                            <h4>Ibrahim Ouédraogo</h4>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="testimonial-text">"Une expérience d'achat exceptionnelle ! La montre est arrivée en parfait état avec tous les certificats. Le service client est vraiment au top."</p>
+                </div>
+                <div class="testimonial-card" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="testimonial-header">
+                        <div class="client-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="client-info">
+                            <h4>Aminata Diallo</h4>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="testimonial-text">"J'ai offert une montre ADAMS LUXURY à mon mari pour son anniversaire. Il était ravi ! Qualité irréprochable et livraison rapide."</p>
+                </div>
+                <div class="testimonial-card" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="testimonial-header">
+                        <div class="client-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="client-info">
+                            <h4>Dr. François Kaboré</h4>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="testimonial-text">"Collectionneur de montres, je peux affirmer que ADAMS LUXURY propose des pièces authentiques de grande qualité. Je recommande vivement !"</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq" id="faq">
+        <div class="container">
+            <h2 class="section-title center" data-aos="fade-up">Questions <span class="highlight">Fréquentes</span></h2>
+            <div class="faq-container">
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="100">
+                    <div class="faq-question">
+                        <h3>Comment garantir l'authenticité des montres ?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Toutes nos montres sont accompagnées de leur certificat d'authenticité original, de leur boîte officielle et de la garantie internationale du fabricant. Nous travaillons directement avec des distributeurs agréés.</p>
+                    </div>
+                </div>
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="200">
+                    <div class="faq-question">
+                        <h3>Quels sont les délais de livraison ?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Nous livrons partout au Burkina Faso en 24-48h pour Ouagadougou et Bobo-Dioulasso, et 3-5 jours pour les autres villes. Chaque envoi est assuré et traçable.</p>
+                    </div>
+                </div>
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="300">
+                    <div class="faq-question">
+                        <h3>Proposez-vous un service après-vente ?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Oui, nous offrons un SAV complet incluant l'entretien, le changement de pile, et la réparation de vos montres. Notre atelier partenaire assure un service professionnel.</p>
+                    </div>
+                </div>
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="400">
+                    <div class="faq-question">
+                        <h3>Puis-je retourner ma montre si elle ne me plaît pas ?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Absolument ! Vous disposez de 14 jours pour retourner votre achat dans son état d'origine. Les frais de retour sont à notre charge si le produit présente un défaut.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter">
+        <div class="container">
+            <div class="newsletter-content" data-aos="fade-up">
+                <h2>Restez Informé</h2>
+                <p>Inscrivez-vous à notre newsletter pour recevoir nos offres exclusives et nouveautés.</p>
+                <form class="newsletter-form" onsubmit="subscribeNewsletter(event)">
+                    <input type="email" placeholder="Votre adresse email" required>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-paper-plane"></i> S'inscrire
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cart Panel -->
     <div class="cart-panel" id="cartPanel">
         <div class="cart-header">
-            <h2>Ma Sélection</h2>
+            <h2><i class="fas fa-shopping-bag"></i> Ma Sélection</h2>
             <div class="close-cart" onclick="toggleCart()">
                 <i class="fas fa-times"></i>
             </div>
         </div>
         <div id="cartItems"></div>
-        <div id="cartFooter" style="margin-top: auto; padding-top: 20px; border-top: 1px solid var(--glass-border);">
-            <div style="display: flex; justify-content: space-between; margin-bottom: 20px;">
-                <span style="letter-spacing: 2px;">TOTAL</span>
-                <span id="totalPrice" style="color: var(--primary); font-weight: 700;">0 FCFA</span>
+        <div id="cartFooter">
+            <div class="cart-total">
+                <span>TOTAL</span>
+                <span id="totalPrice">0 FCFA</span>
+            </div>
+            <div class="trust-badges">
+                <span><i class="fas fa-lock"></i> Paiement Sécurisé</span>
+                <span><i class="fas fa-truck"></i> Livraison Assurée</span>
             </div>
             <button onclick="orderWhatsApp()" class="whatsapp-btn">
                 <i class="fab fa-whatsapp"></i> Finaliser via WhatsApp
@@ -76,28 +339,102 @@
         </div>
     </div>
 
+    <!-- Wishlist Panel -->
+    <div class="wishlist-panel" id="wishlistPanel">
+        <div class="cart-header">
+            <h2><i class="fas fa-heart"></i> Ma Liste de Souhaits</h2>
+            <div class="close-cart" onclick="toggleWishlist()">
+                <i class="fas fa-times"></i>
+            </div>
+        </div>
+        <div id="wishlistItems"></div>
+    </div>
+
+    <!-- Quick View Modal -->
+    <div class="quick-view-modal" id="quickViewModal">
+        <div class="quick-view-content">
+            <button class="close-quickview" onclick="closeQuickView()">&times;</button>
+            <div class="quick-view-grid">
+                <div class="quick-view-image">
+                    <img id="qvImage" src="" alt="">
+                </div>
+                <div class="quick-view-details">
+                    <h3 id="qvTitle"></h3>
+                    <div class="qv-rating" id="qvRating"></div>
+                    <p class="qv-price" id="qvPrice"></p>
+                    <p class="qv-description">Une pièce d'exception qui allie élégance et précision. Fabriquée avec les matériaux les plus nobles, cette montre incarne le luxe intemporel.</p>
+                    <div class="qv-actions">
+                        <button id="qvAddToCart" class="btn btn-primary">
+                            <i class="fas fa-cart-plus"></i> Ajouter au Panier
+                        </button>
+                        <button id="qvAddToWishlist" class="btn btn-secondary">
+                            <i class="far fa-heart"></i> Ajouter aux Favoris
+                        </button>
+                    </div>
+                    <div class="qv-meta">
+                        <p><i class="fas fa-check-circle"></i> En Stock - Livraison 24-48h</p>
+                        <p><i class="fas fa-undo"></i> Retour gratuit sous 14 jours</p>
+                        <p><i class="fas fa-shield-alt"></i> Garantie 2 ans</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
     <footer id="contact">
         <div class="footer-content">
-            <div class="footer-logo">ADAMS LUXURY</div>
-            <p>Le prestige de l'horlogerie fine à votre portée.</p>
-            <div class="footer-contact">
-                <p><i class="fas fa-phone"></i> Service Client : +226 62492815</p>
-                <p><i class="fas fa-location-dot"></i> Ouagadougou, Burkina Faso</p>
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <span class="logo-text">ADAMS</span>
+                        <span class="logo-accent">LUXURY</span>
+                    </div>
+                    <p>Le prestige de l'horlogerie fine à votre portée. Découvrez l'excellence depuis 2010.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Liens Rapides</h4>
+                    <ul>
+                        <li><a href="#home">Accueil</a></li>
+                        <li><a href="#about">À Propos</a></li>
+                        <li><a href="#catalogue">Collection</a></li>
+                        <li><a href="#testimonials">Témoignages</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact</h4>
+                    <p><i class="fas fa-phone"></i> +226 62492815</p>
+                    <p><i class="fas fa-envelope"></i> contact@adamsluxury.com</p>
+                    <p><i class="fas fa-location-dot"></i> Ouagadougou, Burkina Faso</p>
+                </div>
             </div>
-            <div
-                style="margin-top: 40px; border-top: 1px solid #222; padding-top: 20px; font-size: 0.8rem; opacity: 0.5;">
-                &copy; 2026 ADAMS LUXURY. Tous droits réservés.<br>
-                Designed by DERME Faissal<br>
-                +22662885039
+            <div class="footer-bottom">
+                <p>&copy; 2026 ADAMS LUXURY. Tous droits réservés.</p>
+                <p class="designer">Designed by DERME Faissal | +226 62885039</p>
             </div>
         </div>
     </footer>
 
+    <!-- Image Modal Zoom -->
     <div class="image-modal" id="imageModal" onclick="closeZoom()">
         <span class="close-modal">&times;</span>
         <img id="modalImg" src="" alt="Zoom Image">
     </div>
 
+    <!-- Live Chat Widget -->
+    <div class="live-chat-widget" onclick="openChat()">
+        <i class="fas fa-comments"></i>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://unpkg.com/tilt.js@2.0.0/dest/tilt.min.js"></script>
     <script src="script.js"></script>
 </body>
 
